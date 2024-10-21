@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .settings-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group input[type="submit"] {
+            width: auto;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Settings</h1>
+
+    <div class="settings-form">
+        <form action="/settings/update" method="POST">
+            <input type="hidden" name="id" value="{{.ID}}">
+
+            <div class="form-group">
+                <label for="appname">App Name:</label>
+                <input type="text" id="appname" name="appname" value="{{.AppName}}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" value="{{.Description}}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="about">About:</label>
+                <textarea id="about" name="about" rows="4" required>{{.About}}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" value="{{.Phone}}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="{{.Email}}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" value="{{.Location}}" required>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Update Settings">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
