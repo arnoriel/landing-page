@@ -37,6 +37,9 @@ func main() {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
+	// Routing untuk static files
+	e.Static("/static", "static")
+
 	// Routing untuk web interface
 	e.GET("/", handlers.IndexPage)
 	e.GET("/faq", handlers.FAQPage)
